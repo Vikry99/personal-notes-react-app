@@ -18,7 +18,7 @@ class PersonalNotesApp extends React.Component {
             <PersonalNotedHeader/>
             <div className="note-app__body">
                 <PersonalNotesInput/>
-                <PersonalNotesList/>
+                <PersonalNotesList notes={this.state.notes}/>
             </div>
             </>
         )

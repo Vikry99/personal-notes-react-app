@@ -1,12 +1,11 @@
 import React from "react";
-import { getInitialData } from "../utils";
-import { showFormattedDate } from "../utils";
+
 
 class PersonalNotesInput extends React.Component {
     constructor(props){
         super(props)
         this.state = {
-            notes: getInitialData()
+            
         }
     }
 
