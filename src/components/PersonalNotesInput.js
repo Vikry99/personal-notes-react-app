@@ -2,7 +2,7 @@ import React from "react";
 import { getInitialData } from "../utils";
 import { showFormattedDate } from "../utils";
 
-class InputPersonalNotesApp extends React.Component {
+class PersonalNotesInput extends React.Component {
     constructor(props){
         super(props)
         this.state = {
@@ -23,5 +23,5 @@ class InputPersonalNotesApp extends React.Component {
     }
 }
 
-export default InputPersonalNotesApp
+export default PersonalNotesInput
 

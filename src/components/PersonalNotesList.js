@@ -1,6 +1,10 @@
 import React from "react";
+import ArchiveButton from "./ArchiveButton";
+import DeleteButton from "./DeleteButton";
 
-function ListPersonalNotes(){
+
+
+function PersonalNotesList(){
     return(
         <>
     <h2 className="title-main">Catatan Aktif</h2>
@@ -12,8 +16,8 @@ function ListPersonalNotes(){
                 <p className="note-item__body">Babel merupakan tools open-source yang digunakan untuk mengubah sintaks ECMAScript 2015+ menjadi sintaks yang didukung oleh JavaScript engine versi lama. Babel sering dipakai ketika kita menggunakan sintaks terbaru termasuk sintaks JSX.</p>
             </div>
             <div className="note-item__action">
-                <button className="note-item__delete-button">Delete</button>
-                <button className="note-item__archive-button">Arsikan</button>
+                <DeleteButton/>
+                <ArchiveButton/>
             </div>
         </div>
     </div>
@@ -21,4 +25,4 @@ function ListPersonalNotes(){
     )
 }
 
-export default ListPersonalNotes
+export default PersonalNotesList

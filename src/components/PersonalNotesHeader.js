@@ -1,6 +1,6 @@
 import React from "react";
 
-class HeaderPersonalNoted extends React.Component {
+class PersonalNotedHeader extends React.Component {
     constructor(props){
         super(props)
         this.state = {
@@ -22,4 +22,4 @@ class HeaderPersonalNoted extends React.Component {
     
 }
 
-export default HeaderPersonalNoted
+export default PersonalNotedHeader

@@ -1,8 +1,8 @@
 import React from "react";
 import { getInitialData } from "../utils";
-import HeaderPersonalNoted from "./HeaderPersonalNotes";
-import InputPersonalNotesApp from "./InputPersonalNotesApp";
-import ListPersonalNotes from "./ListPersonalNotes";
+import PersonalNotedHeader from "./PersonalNotesHeader";
+import PersonalNotesInput from "./PersonalNotesInput";
+import PersonalNotesList from "./PersonalNotesList";
 
 class PersonalNotesApp extends React.Component {
     constructor(props){
@@ -15,10 +15,10 @@ class PersonalNotesApp extends React.Component {
     render(){
         return(
             <>
-            <HeaderPersonalNoted/>
+            <PersonalNotedHeader/>
             <div className="note-app__body">
-                <InputPersonalNotesApp/>
-                <ListPersonalNotes/>
+                <PersonalNotesInput/>
+                <PersonalNotesList/>
             </div>
             </>
         )
