@@ -1,5 +1,5 @@
 import React from "react";
-
+import FormInput from "./FormInput";
 class PersonalNotesInput extends React.Component {
   constructor(props) {
     super(props);
@@ -37,21 +37,11 @@ class PersonalNotesInput extends React.Component {
 
   render() {
     return (
-      <form className="note-input" onSubmit={this.onSubmitEventHandler}>
-        <h2 className="title-main">Buat Catatan</h2>
-        <p className="note-input__title__char-limit">Sisa Karakter</p>
-        <input
-          className="note-input__title"
-          placeholder="Ini adalah judul..."
-          onChange={this.onTitleInputEventHandler}
-        />
-        <textarea
-          className="note-input__body"
-          placeholder="Tuliskan catatan kamu disini ..."
-          onChange={this.onBodyInputEventHandler}
-        />
-        <button type="submit">Buat</button>
-      </form>
+      <FormInput
+        onSubmitEventHandler={this.onSubmitEventHandler}
+        onTitleInputEventHandler={this.onTitleInputEventHandler}
+        onBodyInputEventHandler={this.onBodyInputEventHandler}
+      />
     );
   }
 }
