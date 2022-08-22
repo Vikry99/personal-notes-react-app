@@ -18,7 +18,12 @@ function NotesActive({ isActive, onDelete }) {
               <p className="note-item__body">{item.body}</p>
             </div>
             <div className="note-item__action">
-              <DeleteButton key={item.id} id={item.id} {...item} onDelete={onDelete}/>
+              <DeleteButton
+                key={item.id}
+                id={item.id}
+                {...item}
+                onDelete={onDelete}
+              />
               <ArchiveButton />
             </div>
           </div>
