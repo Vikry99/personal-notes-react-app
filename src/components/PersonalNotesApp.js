@@ -12,6 +12,7 @@ class PersonalNotesApp extends React.Component {
     };
     this.onAddPersonalNotes = this.onAddPersonalNotes.bind(this);
     this.onDeletePersonalNotes = this.onDeletePersonalNotes.bind(this);
+    this.onArchivePersonalNotes = this.onArchivePersonalNotes.bind(this);
   }
 
   onAddPersonalNotes({ title, body }) {
@@ -37,7 +38,15 @@ class PersonalNotesApp extends React.Component {
     this.setState({ notes });
   }
 
-
+  onArchivePersonalNotes(id) {
+    this.setState((prev) => {
+      return {
+        notes: prev.notes.map((note) =>
+          note.id === id ? { ...note, archived: !note.archived } : note
+        ),
+      };
+    });
+  }
 
   render() {
     return (
@@ -48,6 +57,7 @@ class PersonalNotesApp extends React.Component {
           <PersonalNotesList
             notes={this.state.notes}
             onDelete={this.onDeletePersonalNotes}
+            onArchive={this.onArchivePersonalNotes}
           />
         </div>
       </>

@@ -1,7 +1,14 @@
 import React from "react";
 
-function ArchiveButton({id, onArhive}){
-    return <button className="note-item__archive-button" onClick={() => onArhive(id)}>Arsipkan</button>
+function ArchiveButton({ id, onArchive }) {
+  return (
+    <button
+      className="note-item__archive-button"
+      onClick={() => console.log(onArchive(id))}
+    >
+      Arsipkan
+    </button>
+  );
 }
 
-export default ArchiveButton
+export default ArchiveButton;

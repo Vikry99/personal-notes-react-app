@@ -3,7 +3,7 @@ import { showFormattedDate } from "../utils";
 import ArchiveButton from "./ArchiveButton";
 import DeleteButton from "./DeleteButton";
 
-function NotesActive({ isActive, onDelete }) {
+function NotesActive({ isActive, onDelete, onArchive, idx }) {
   return (
     <>
       <h2 className="title-main">Catatan Aktif</h2>
@@ -19,10 +19,9 @@ function NotesActive({ isActive, onDelete }) {
             </div>
             <div className="note-item__action">
               <DeleteButton
-                key={item.id}
-                id={item.id}
-                {...item}
                 onDelete={onDelete}
+                onArchive={onArchive}
+                id={idx}
               />
               <ArchiveButton />
             </div>
