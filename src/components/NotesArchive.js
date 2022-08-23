@@ -3,7 +3,7 @@ import { showFormattedDate } from "../utils";
 import DeleteButton from "./DeleteButton";
 import MoveButton from "./MoveButton";
 
-function NotesArchive({ notes, onDelete }) {
+function NotesArchive({ notes, onDelete, onMove }) {
   return (
     <>
       <h2 className="title-main">Arsip</h2>
@@ -17,7 +17,7 @@ function NotesArchive({ notes, onDelete }) {
             </div>
             <div className="note-item__action">
               <DeleteButton id={item.id} onDelete={onDelete} />
-              <MoveButton />
+              <MoveButton  id={item.id} onMove={onMove} />
             </div>
           </div>
         ))}
