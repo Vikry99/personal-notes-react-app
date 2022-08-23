@@ -4,7 +4,7 @@ function ArchiveButton({ id, onArchive }) {
   return (
     <button
       className="note-item__archive-button"
-      onClick={() => console.log(onArchive(id))}
+      onClick={() => onArchive(id)}
     >
       Arsipkan
     </button>

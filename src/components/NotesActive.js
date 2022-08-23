@@ -20,13 +20,12 @@ function NotesActive({ onDelete, onArchive, notes }) {
             <div className="note-item__action">
               <DeleteButton
                 onDelete={onDelete}
-                onArchive={onArchive}
                 id={item.id}
               />
-              <ArchiveButton />
+              <ArchiveButton onArchive={onArchive} id={item.id} />
             </div>
           </div>
-              ))}
+          ))}
       </div>
     </>
   );

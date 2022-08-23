@@ -41,8 +41,8 @@ class PersonalNotesApp extends React.Component {
   onArchivePersonalNotes(id) {
     this.setState((prev) => {
       return {
-        notes: prev.notes.map((note) =>
-          note.id === id ? { ...note, archived: !note.archived } : note
+        notes: prev.notes.map((note) => 
+          note.id === id ? { ...note, archived : !note.archived } : note
         ),
       };
     });
