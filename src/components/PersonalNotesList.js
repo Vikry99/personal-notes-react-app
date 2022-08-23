@@ -6,19 +6,16 @@ import NotesEmpty from "./NotesEmpty";
 function PersonalNotesList({ notes, onDelete, onArchive }) {
   const isActive = notes.filter((item) => item.archived === false);
   const isArchive = notes.filter((item) => item.archived === true);
+
   return (
     <>
       {isActive.length !== 0 ? (
-        notes.map((note) => (
           <NotesActive
-            key={note.id}
-            idx={note.id}
-            {...note}
+            notes={notes}
             isActive={isActive}
             onDelete={onDelete}
             onArchive={onArchive}
           />
-        ))
       ) : (
         <NotesEmpty />
       )}
