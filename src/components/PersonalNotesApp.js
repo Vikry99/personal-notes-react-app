@@ -13,6 +13,7 @@ class PersonalNotesApp extends React.Component {
     this.onAddPersonalNotes = this.onAddPersonalNotes.bind(this);
     this.onDeletePersonalNotes = this.onDeletePersonalNotes.bind(this);
     this.onArchivePersonalNotes = this.onArchivePersonalNotes.bind(this);
+    this.onSearchPersonalNotes = this.onSearchPersonalNotes.bind(this);
   }
 
   onAddPersonalNotes({ title, body }) {
@@ -46,6 +47,11 @@ class PersonalNotesApp extends React.Component {
         ),
       };
     });
+  }
+
+  onSearchPersonalNotes(SearchTitle){
+    const notes = this.state.notes.filter((note) => note.title === SearchTitle)
+    this.setState({notes})
   }
 
   render() {

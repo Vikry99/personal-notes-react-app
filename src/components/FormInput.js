@@ -14,6 +14,7 @@ function FormInput({
           className="note-input__title"
           placeholder="Ini adalah judul..."
           onChange={onTitleInputEventHandler}
+          required
         />
         <textarea
           className="note-input__body"
