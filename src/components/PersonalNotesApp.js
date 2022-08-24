@@ -9,6 +9,7 @@ class PersonalNotesApp extends React.Component {
     super(props);
     this.state = {
       notes: getInitialData(),
+      resultSearch: getInitialData(),
     };
     this.onAddPersonalNotes = this.onAddPersonalNotes.bind(this);
     this.onDeletePersonalNotes = this.onDeletePersonalNotes.bind(this);
@@ -20,7 +21,7 @@ class PersonalNotesApp extends React.Component {
     console.log(showFormattedDate(new Date()));
     this.setState((prev) => {
       return {
-        notes: [
+        resultSearch: [
           ...prev.notes,
           {
             id: +new Date(),
@@ -49,19 +50,23 @@ class PersonalNotesApp extends React.Component {
     });
   }
 
-  onSearchPersonalNotes(SearchTitle){
-    const notes = this.state.notes.filter((note) => note.title === SearchTitle)
-    this.setState({notes})
+  onSearchPersonalNotes(searchTitle){
+    this.setState((prev) => {
+      return {
+      resultSearch : prev.notes.filter((note) => note.title.toLowerCase().includes(searchTitle.target.value.toLowerCase()))
+    }
+    })
   }
+
 
   render() {
     return (
       <>
-        <PersonalNotedHeader />
+        <PersonalNotedHeader onSearch={this.onSearchPersonalNotes} />
         <div className="note-app__body">
           <PersonalNotesInput addNotes={this.onAddPersonalNotes} />
           <PersonalNotesList
-            notes={this.state.notes}
+            notes={this.state.resultSearch}
             onDelete={this.onDeletePersonalNotes}
             onArchive={this.onArchivePersonalNotes}
           />

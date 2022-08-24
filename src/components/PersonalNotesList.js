@@ -3,7 +3,7 @@ import NotesActive from "./NotesActive";
 import NotesArchive from "./NotesArchive";
 import NotesEmpty from "./NotesEmpty";
 
-function PersonalNotesList({ notes, onDelete, onArchive, onMove }) {
+function PersonalNotesList({ notes, onDelete, onArchive }) {
   const isActive = notes.filter((item) => item.archived === false);
   const isArchive = notes.filter((item) => item.archived === true);
 

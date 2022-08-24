@@ -4,6 +4,7 @@ function FormInput({
   onSubmitEventHandler,
   onTitleInputEventHandler,
   onBodyInputEventHandler,
+  onRestOfInput
 }) {
   return (
     <>
