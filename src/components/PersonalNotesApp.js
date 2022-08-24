@@ -49,7 +49,7 @@ class PersonalNotesApp extends React.Component {
     });
   }
 
-  onSearchPersonalNotes(searchTitle){
+  onSearchPersonalNotes(searchTitle, event){
     // console.log(searchTitle.target.value)
     if(searchTitle.target.value.length >= 3 ){
       this.setState((prev) => {
@@ -57,6 +57,7 @@ class PersonalNotesApp extends React.Component {
           notes: prev.notes.filter((note) => note.title.toLowerCase().startsWith(searchTitle.target.value.toLowerCase()))
         }
       })
+      event.preventDefault()
       // const result = this.state.notes.filter((note) => {
       //   return (
       //     console.log(note.title.toLowerCase().startsWith(searchTitle.target.value.toLowerCase()))
@@ -70,6 +71,7 @@ class PersonalNotesApp extends React.Component {
       this.setState(() => ({
         notes: this.state.notes
       }))
+      event.preventDefault()
     }
     // this.setState((prev) => {
     //   return {
