@@ -6,7 +6,7 @@ class PersonalNotesInput extends React.Component {
     this.state = {
       title: "",
       body: "",
-      result: {input: '', maxLength: 50, char: null}
+      result: { input: "", maxLength: 50, char: null },
     };
 
     this.onTitleInputEventHandler = this.onTitleInputEventHandler.bind(this);
@@ -21,8 +21,8 @@ class PersonalNotesInput extends React.Component {
         result: {
           ...prev.result,
           input: event.target.value,
-          char: prev.result.maxLength - event.target.value.length
-        }
+          char: prev.result.maxLength - event.target.value.length,
+        },
       };
     });
   }
@@ -40,18 +40,15 @@ class PersonalNotesInput extends React.Component {
     this.props.addNotes(this.state);
     this.setState((prev) => {
       return {
-        note: {
-          title: '',
-          body: ''
-        },
+        title: "",
+        body: "",
         result: {
           ...prev.result,
-          input: '',
-        }
-      }
-    })
+          input: "",
+        },
+      };
+    });
   }
-
 
   render() {
     return (

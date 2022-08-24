@@ -10,16 +10,20 @@ function PersonalNotesList({ notes, onDelete, onArchive }) {
   return (
     <>
       {isActive.length !== 0 ? (
-          <NotesActive
-            notes={isActive}
-            onDelete={onDelete}
-            onArchive={onArchive}
-          />
+        <NotesActive
+          notes={isActive}
+          onDelete={onDelete}
+          onArchive={onArchive}
+        />
       ) : (
         <NotesEmpty />
       )}
       {isArchive.length !== 0 ? (
-        <NotesArchive notes={isArchive} onDelete={onDelete} onMove={onArchive} />
+        <NotesArchive
+          notes={isArchive}
+          onDelete={onDelete}
+          onMove={onArchive}
+        />
       ) : (
         <NotesEmpty isArchive={isArchive} isActive={isActive} />
       )}

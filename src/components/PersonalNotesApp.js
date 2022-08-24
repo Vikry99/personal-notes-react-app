@@ -17,7 +17,6 @@ class PersonalNotesApp extends React.Component {
   }
 
   onAddPersonalNotes({ title, body }) {
-    console.log(showFormattedDate(new Date()));
     this.setState((prev) => {
       return {
         notes: [
@@ -42,45 +41,34 @@ class PersonalNotesApp extends React.Component {
   onArchivePersonalNotes(id) {
     this.setState((prev) => {
       return {
-        notes: prev.notes.map((note) => 
-          note.id === id ? { ...note, archived : !note.archived } : note
+        notes: prev.notes.map((note) =>
+          note.id === id ? { ...note, archived: !note.archived } : note
         ),
       };
     });
   }
 
-  onSearchPersonalNotes(searchTitle, event){
-    // console.log(searchTitle.target.value)
-    if(searchTitle.target.value.length >= 3 ){
-      this.setState((prev) => {
-        return {
-          notes: prev.notes.filter((note) => note.title.toLowerCase().startsWith(searchTitle.target.value.toLowerCase()))
-        }
-      })
-      event.preventDefault()
-      // const result = this.state.notes.filter((note) => {
-      //   return (
-      //     console.log(note.title.toLowerCase().startsWith(searchTitle.target.value.toLowerCase()))
-          
-      //     )
-       
-      //   });
-      //   console.log(result)
-      //  this.setState(result)
-    } else {
-      this.setState(() => ({
-        notes: this.state.notes
-      }))
-      event.preventDefault()
-    }
-    // this.setState((prev) => {
-    //   return {
-    //     // notes: prev.notes.filter((note) => note.title.toLowerCase() === searchTitle.target.value.toLowerCase()  ? note.title : note) 
-    //     notes : prev.notes.filter((note) => note.title.toLowerCase().includes(searchTitle.target.value.toLowerCase()))
-    // }
-    // })
+  onSearchPersonalNotes(searchTitle, event) {
+    const checkTitle = searchTitle.target.value.toLowerCase();
+    const checkNotes = this.state.notes.forEach((note) => {
+      if (checkTitle === note.title.toLowerCase()) {
+        this.setState((prev) => {
+          return {
+            notes: prev.notes.filter((note) =>
+              note.title
+                .toLowerCase()
+                .startsWith(searchTitle.target.value.toLowerCase())
+            ),
+          };
+        });
+        event.preventDefault();
+      } else {
+        this.setState(() => ({
+          notes: this.state.notes,
+        }));
+      }
+    });
   }
-
 
   render() {
     return (
