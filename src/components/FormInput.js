@@ -4,13 +4,13 @@ function FormInput({
   onSubmitEventHandler,
   onTitleInputEventHandler,
   onBodyInputEventHandler,
-  onRestOfInput
+  result
 }) {
   return (
     <>
       <form className="note-input" onSubmit={onSubmitEventHandler}>
         <h2 className="title-main">Buat Catatan</h2>
-        <p className="note-input__title__char-limit">Sisa Karakter</p>
+        <p className="note-input__title__char-limit">Sisa Karakter: {result}</p>
         <input
           className="note-input__title"
           placeholder="Ini adalah judul..."

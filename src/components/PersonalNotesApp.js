@@ -9,7 +9,6 @@ class PersonalNotesApp extends React.Component {
     super(props);
     this.state = {
       notes: getInitialData(),
-      resultSearch: getInitialData(),
     };
     this.onAddPersonalNotes = this.onAddPersonalNotes.bind(this);
     this.onDeletePersonalNotes = this.onDeletePersonalNotes.bind(this);
@@ -21,7 +20,7 @@ class PersonalNotesApp extends React.Component {
     console.log(showFormattedDate(new Date()));
     this.setState((prev) => {
       return {
-        resultSearch: [
+        notes: [
           ...prev.notes,
           {
             id: +new Date(),
@@ -51,11 +50,33 @@ class PersonalNotesApp extends React.Component {
   }
 
   onSearchPersonalNotes(searchTitle){
-    this.setState((prev) => {
-      return {
-      resultSearch : prev.notes.filter((note) => note.title.toLowerCase().includes(searchTitle.target.value.toLowerCase()))
+    // console.log(searchTitle.target.value)
+    if(searchTitle.target.value.length >= 3 ){
+      this.setState((prev) => {
+        return {
+          notes: prev.notes.filter((note) => note.title.toLowerCase().startsWith(searchTitle.target.value.toLowerCase()))
+        }
+      })
+      // const result = this.state.notes.filter((note) => {
+      //   return (
+      //     console.log(note.title.toLowerCase().startsWith(searchTitle.target.value.toLowerCase()))
+          
+      //     )
+       
+      //   });
+      //   console.log(result)
+      //  this.setState(result)
+    } else {
+      this.setState(() => ({
+        notes: this.state.notes
+      }))
     }
-    })
+    // this.setState((prev) => {
+    //   return {
+    //     // notes: prev.notes.filter((note) => note.title.toLowerCase() === searchTitle.target.value.toLowerCase()  ? note.title : note) 
+    //     notes : prev.notes.filter((note) => note.title.toLowerCase().includes(searchTitle.target.value.toLowerCase()))
+    // }
+    // })
   }
 
 
@@ -66,7 +87,7 @@ class PersonalNotesApp extends React.Component {
         <div className="note-app__body">
           <PersonalNotesInput addNotes={this.onAddPersonalNotes} />
           <PersonalNotesList
-            notes={this.state.resultSearch}
+            notes={this.state.notes}
             onDelete={this.onDeletePersonalNotes}
             onArchive={this.onArchivePersonalNotes}
           />

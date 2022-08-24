@@ -6,19 +6,23 @@ class PersonalNotesInput extends React.Component {
     this.state = {
       title: "",
       body: "",
-      restOf: 50
+      result: {input: '', maxLength: 50, char: null}
     };
 
     this.onTitleInputEventHandler = this.onTitleInputEventHandler.bind(this);
     this.onBodyInputEventHandler = this.onBodyInputEventHandler.bind(this);
     this.onSubmitEventHandler = this.onSubmitEventHandler.bind(this);
-    this.onRestOfInput = this.onRestOfInput.bind(this)
   }
 
   onTitleInputEventHandler(event) {
-    this.setState(() => {
+    this.setState((prev) => {
       return {
         title: event.target.value,
+        result: {
+          ...prev.result,
+          input: event.target.value,
+          char: prev.result.maxLength - event.target.value.length
+        }
       };
     });
   }
@@ -34,21 +38,25 @@ class PersonalNotesInput extends React.Component {
   onSubmitEventHandler(event) {
     event.preventDefault();
     this.props.addNotes(this.state);
-    console.log(this.state.notes);
-  }
-
-  onRestOfInput(event){
-    this.setState(() => {
+    this.setState((prev) => {
       return {
-        restOf:event.target.value
+        note: {
+          title: '',
+          body: ''
+        },
+        result: {
+          ...prev.result,
+          input: '',
+        }
       }
     })
   }
 
+
   render() {
     return (
       <FormInput
-        onRestOfInput={this.onRestOfInput}
+        result={this.state.result.char}
         onSubmitEventHandler={this.onSubmitEventHandler}
         onTitleInputEventHandler={this.onTitleInputEventHandler}
         onBodyInputEventHandler={this.onBodyInputEventHandler}
