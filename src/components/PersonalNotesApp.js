@@ -1,5 +1,5 @@
 import React from "react";
-import { getInitialData, showFormattedDate } from "../utils";
+import { getInitialData } from "../utils";
 import PersonalNotedHeader from "./PersonalNotesHeader";
 import PersonalNotesInput from "./PersonalNotesInput";
 import PersonalNotesList from "./PersonalNotesList";
