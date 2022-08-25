@@ -38,16 +38,7 @@ class PersonalNotesInput extends React.Component {
   onSubmitEventHandler(event) {
     event.preventDefault();
     this.props.addNotes(this.state);
-    this.setState((prev) => {
-      return {
-        title: "",
-        body: "",
-        result: {
-          ...prev.result,
-          input: "",
-        },
-      };
-    });
+    event.target.reset();
   }
 
   render() {

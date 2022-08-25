@@ -9,6 +9,7 @@ function PersonalNotesList({ notes, onDelete, onArchive }) {
 
   return (
     <>
+      <h2 className="title-main">Catatan Aktif</h2>
       {isActive.length !== 0 ? (
         <NotesActive
           notes={isActive}
@@ -18,6 +19,7 @@ function PersonalNotesList({ notes, onDelete, onArchive }) {
       ) : (
         <NotesEmpty />
       )}
+      <h2 className="title-main">Arsip</h2>
       {isArchive.length !== 0 ? (
         <NotesArchive
           notes={isArchive}

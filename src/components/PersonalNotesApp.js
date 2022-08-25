@@ -1,5 +1,5 @@
 import React from "react";
-import { getInitialData, showFormattedDate } from "../utils";
+import { getInitialData } from "../utils";
 import PersonalNotedHeader from "./PersonalNotesHeader";
 import PersonalNotesInput from "./PersonalNotesInput";
 import PersonalNotesList from "./PersonalNotesList";
@@ -48,9 +48,9 @@ class PersonalNotesApp extends React.Component {
     });
   }
 
-  onSearchPersonalNotes(searchTitle, event) {
+  onSearchPersonalNotes(searchTitle) {
     const checkTitle = searchTitle.target.value.toLowerCase();
-    const checkNotes = this.state.notes.forEach((note) => {
+    this.state.notes.forEach((note) => {
       if (checkTitle === note.title.toLowerCase()) {
         this.setState((prev) => {
           return {
@@ -61,13 +61,14 @@ class PersonalNotesApp extends React.Component {
             ),
           };
         });
-        event.preventDefault();
-      } else {
-        this.setState(() => ({
-          notes: this.state.notes,
-        }));
+        if (searchTitle.target.value.length === 0) {
+          this.setState((prev) => ({
+            notes: prev.notes,
+          }));
+        }
       }
     });
+    console.log(searchTitle.target.value.length);
   }
 
   render() {

@@ -6,7 +6,6 @@ import DeleteButton from "./DeleteButton";
 function NotesActive({ onDelete, onArchive, notes }) {
   return (
     <>
-      <h2 className="title-main">Catatan Aktif</h2>
       <div className="notes-list">
         {notes.map((item) => (
           <div className="note-item" key={item.id}>
@@ -18,14 +17,11 @@ function NotesActive({ onDelete, onArchive, notes }) {
               <p className="note-item__body">{item.body}</p>
             </div>
             <div className="note-item__action">
-              <DeleteButton
-                onDelete={onDelete}
-                id={item.id}
-              />
+              <DeleteButton onDelete={onDelete} id={item.id} />
               <ArchiveButton onArchive={onArchive} id={item.id} />
             </div>
           </div>
-          ))}
+        ))}
       </div>
     </>
   );
