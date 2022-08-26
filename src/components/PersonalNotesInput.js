@@ -6,7 +6,7 @@ class PersonalNotesInput extends React.Component {
     this.state = {
       title: "",
       body: "",
-      result: { input: "", maxLength: 50, char: null },
+      result: { input: "", maxLength: 50, char: 50 },
     };
 
     this.onTitleInputEventHandler = this.onTitleInputEventHandler.bind(this);
@@ -39,6 +39,7 @@ class PersonalNotesInput extends React.Component {
     event.preventDefault();
     this.props.addNotes(this.state);
     event.target.reset();
+    
   }
 
   render() {
