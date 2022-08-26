@@ -9,6 +9,7 @@ class PersonalNotesApp extends React.Component {
     super(props);
     this.state = {
       notes: getInitialData(),
+      resultSearch: getInitialData(),
     };
     this.onAddPersonalNotes = this.onAddPersonalNotes.bind(this);
     this.onDeletePersonalNotes = this.onDeletePersonalNotes.bind(this);
@@ -20,6 +21,16 @@ class PersonalNotesApp extends React.Component {
     this.setState((prev) => {
       return {
         notes: [
+          ...prev.notes,
+          {
+            id: +new Date(),
+            title,
+            body,
+            createdAt: new Date(),
+            archived: false,
+          },
+        ],
+        resultSearch: [
           ...prev.notes,
           {
             id: +new Date(),
@@ -61,14 +72,12 @@ class PersonalNotesApp extends React.Component {
             ),
           };
         });
-        if (searchTitle.target.value.length === 0) {
-          this.setState((prev) => ({
-            notes: prev.notes,
-          }));
-        }
+      } else if (searchTitle.target.value.length === 0) {
+        this.setState(() => ({
+          notes: this.state.resultSearch,
+        }));
       }
     });
-    console.log(searchTitle.target.value.length);
   }
 
   render() {
