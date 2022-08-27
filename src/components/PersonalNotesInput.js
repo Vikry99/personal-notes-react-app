@@ -1,3 +1,4 @@
+import autoBind from "auto-bind";
 import React from "react";
 import FormInput from "./FormInput";
 class PersonalNotesInput extends React.Component {
@@ -8,10 +9,7 @@ class PersonalNotesInput extends React.Component {
       body: "",
       result: { input: "", maxLength: 50, char: 50 },
     };
-
-    this.onTitleInputEventHandler = this.onTitleInputEventHandler.bind(this);
-    this.onBodyInputEventHandler = this.onBodyInputEventHandler.bind(this);
-    this.onSubmitEventHandler = this.onSubmitEventHandler.bind(this);
+    autoBind(this);
   }
 
   onTitleInputEventHandler(event) {
@@ -39,7 +37,6 @@ class PersonalNotesInput extends React.Component {
     event.preventDefault();
     this.props.addNotes(this.state);
     event.target.reset();
-    
   }
 
   render() {

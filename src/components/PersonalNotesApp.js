@@ -3,6 +3,7 @@ import { getInitialData } from "../utils";
 import PersonalNotedHeader from "./PersonalNotesHeader";
 import PersonalNotesInput from "./PersonalNotesInput";
 import PersonalNotesList from "./PersonalNotesList";
+import autoBind from "auto-bind";
 
 class PersonalNotesApp extends React.Component {
   constructor(props) {
@@ -11,10 +12,7 @@ class PersonalNotesApp extends React.Component {
       notes: getInitialData(),
       resultSearch: getInitialData(),
     };
-    this.onAddPersonalNotes = this.onAddPersonalNotes.bind(this);
-    this.onDeletePersonalNotes = this.onDeletePersonalNotes.bind(this);
-    this.onArchivePersonalNotes = this.onArchivePersonalNotes.bind(this);
-    this.onSearchPersonalNotes = this.onSearchPersonalNotes.bind(this);
+    autoBind(this);
   }
 
   onAddPersonalNotes({ title, body }) {
