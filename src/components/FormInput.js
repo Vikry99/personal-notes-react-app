@@ -16,6 +16,7 @@ function FormInput({
           className="note-input__title"
           placeholder="Ini adalah judul..."
           onChange={onTitleInputEventHandler}
+          required
           onInvalid={e => e.target.setCustomValidity('Silahkan masukan judul')} 
           maxLength={50}
         />
@@ -23,6 +24,8 @@ function FormInput({
           className="note-input__body"
           placeholder="Tuliskan catatan kamu disini ..."
           onChange={onBodyInputEventHandler}
+          required
+          onInvalid={e => e.target.setCustomValidity('Silahkan masukan catatan terlebih dahulu')} 
         />
         <button type="submit">Buat</button>
       </form>
