@@ -6,6 +6,7 @@ function FormInput({
   onBodyInputEventHandler,
   result
 }) {
+  
   return (
     <>
       <form className="note-input" onSubmit={onSubmitEventHandler}>
@@ -15,7 +16,7 @@ function FormInput({
           className="note-input__title"
           placeholder="Ini adalah judul..."
           onChange={onTitleInputEventHandler}
-          required
+          onInvalid={e => e.target.setCustomValidity('Silahkan masukan judul')} 
         />
         <textarea
           className="note-input__body"
