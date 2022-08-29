@@ -17,6 +17,7 @@ function FormInput({
           placeholder="Ini adalah judul..."
           onChange={onTitleInputEventHandler}
           onInvalid={e => e.target.setCustomValidity('Silahkan masukan judul')} 
+          maxLength={50}
         />
         <textarea
           className="note-input__body"
